@@ -13,12 +13,11 @@ var rootCmd = &cobra.Command{
 	Long:  `long在线客服`,
 	Args:  args,
 	Run: func(cmd *cobra.Command, args []string) {
-		//args = append(args, "server1")
+
 	},
 }
 
 func args(cmd *cobra.Command, args []string) error {
-	//args = append(args, "server")
 	fmt.Println(args)
 	if len(args) < 1 {
 		return errors.New("至少需要一个参数!")
@@ -33,6 +32,6 @@ func Execute() {
 }
 func init() {
 	rootCmd.AddCommand(serverCmd)
-	//rootCmd.AddCommand(installCmd)
-	//rootCmd.AddCommand(stopCmd)
+	rootCmd.AddCommand(installCmd)
+	rootCmd.AddCommand(stopCmd)
 }
